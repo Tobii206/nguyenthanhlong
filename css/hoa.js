@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="index.html">
   <title>Hoa rơi</title>
   <style>
     html, body {
