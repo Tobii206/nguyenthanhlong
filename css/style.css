@@ -94,3 +94,32 @@ body {
     background: linear-gradient(45deg, #d5135a, #f05924);
     box-shadow: 0px 4px 30px rgb(223 45 70 / 60%);
 }
+<script>
+function createPetal() {
+  const petal = document.createElement('div');
+  petal.classList.add('petal');
+  petal.style.left = Math.random() * window.innerWidth + 'px';
+  petal.style.top = '-20px';
+  document.body.appendChild(petal);
+
+  let angle = Math.random() * 2 - 1;
+  let speedY = 1 + Math.random() * 2;
+  let x = parseFloat(petal.style.left);
+  let y = -20;
+
+  const fall = setInterval(() => {
+    angle += 0.01;
+    x += Math.sin(angle);
+    y += speedY;
+    petal.style.left = x + 'px';
+    petal.style.top = y + 'px';
+
+    if (y > window.innerHeight) {
+      clearInterval(fall);
+      petal.remove();
+    }
+  }, 20);
+}
+
+setInterval(createPetal, 300); // 1 cánh hoa mỗi 300ms
+</script>
