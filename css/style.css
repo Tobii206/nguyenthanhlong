@@ -95,16 +95,22 @@ body{
 /* NAME */
 
 .sidebar-name{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
   font-size:42px;
   font-weight:700;
 
   color:var(--title);
 
-  text-align:center;
-
-  line-height:1.2;
-
   margin-bottom:16px;
+}
+
+.sidebar-name i{
+  font-size:28px;
+  color:var(--primary);
 }
 
 /* BADGE */
