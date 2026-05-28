@@ -1,105 +1,188 @@
+## index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nguyen Thanh Long - Profile Card</title>
-  <link rel="shortcut icon" href="#" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daniel — Backend Developer</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    .petal {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: pink;
-      border-radius: 50%;
-      pointer-events: none;
-      opacity: 0.8;
-      z-index: 1000;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="wrapper">
-    <div class="profile-card">
-      <div class="profile-card-img">
-        <img src="https://up-pic.itoon.org/contribute/fiction/4610927/avatar/8605926/1649677821103.jpeg-s200webp?sign=9c19760006a085260fcc8bd48e1d5b4c&t=66f4a400" alt="Avatar">
-      </div>
-      <div class="profile-card-info">
-        <div class="name">MY PROFILE</div>
-        <div class="position">
-          NGUYỄN THÀNH LONG&nbsp;
-          <span title="Tài khoản đã xác minh">
-            <svg viewBox="0 0 12 13" width="13" height="14" fill="currentColor">
-              <path d="m106.853 922.354-3.5 3.5a.499.499 0 0 1-.706 0l-1.5-1.5a.5.5 0 1 1 .706-.708l1.147 1.147 3.147-3.147a.5.5 0 1 1 .706.708"/>
-            </svg>
-          </span>
-        </div>
-        <div class="location">
-          <i class="fa-solid fa-map-location"></i> Hanoi, Vietnam
-        </div>
-        <p>music</p>
-        <audio controls autoplay loop>
-          <source src="audio.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="profile-card-social">
-        <a href="https://www.facebook.com/nglongsadboi?locale=vi_VN" class="item facebook" target="_blank">
-          <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        <a href="https://x.com/mynametobii" class="item twitter" target="_blank">
-          <i class="fa-brands fa-twitter"></i>
-        </a>
-        <a href="https://www.instagram.com/mynametobiii/" class="item instagram" target="_blank">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://github.com/Tobii206" class="item github" target="_blank">
-          <i class="fa-brands fa-github"></i>
-        </a>
-        <a href="https://www.tiktok.com/@nlong0806" class="item website" target="_blank">
-          <i class="fa-solid fa-link"></i>
-        </a>
-      </div>
+<div class="wrap">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="avatar">
+      <!-- Thay src bằng ảnh của bạn -->
+      <i class="ti ti-user"></i>
+    </div>
+
+    <div class="sidebar-name">
+      <i class="ti ti-refresh" style="font-size:16px;color:var(--blue)"></i>
+      Daniel
+    </div>
+
+    <div class="badge">Backend Developer</div>
+
+    <div class="socials">
+      <a href="#" title="Website"><i class="ti ti-world"></i></a>
+      <a href="#" title="GitHub"><i class="ti ti-brand-github"></i></a>
+      <a href="#" title="Facebook"><i class="ti ti-brand-facebook"></i></a>
+      <a href="#" title="Twitter"><i class="ti ti-brand-twitter"></i></a>
+      <a href="#" title="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+    </div>
+
+    <div class="meta">
+      <div class="meta-row"><i class="ti ti-calendar"></i> January 1, 2000</div>
+      <div class="meta-row"><i class="ti ti-map-pin"></i> Ha Noi, Viet Nam</div>
+      <div class="meta-row"><i class="ti ti-mail"></i> daniel@gmail.com</div>
     </div>
   </div>
 
-  <script>
-    function createPetal() {
-      const petal = document.createElement('div');
-      petal.classList.add('petal');
-      petal.style.left = Math.random() * window.innerWidth + 'px';
-      petal.style.top = '-20px';
-      document.body.appendChild(petal);
+  <!-- MAIN -->
+  <div class="main">
+    <div class="nav">
+      <button class="nav-btn active" onclick="showTab('about', this)">ABOUT</button>
+      <button class="nav-btn" onclick="showTab('contact', this)">CONTACT</button>
+      <button class="nav-btn" onclick="showTab('resume', this)">RESUME</button>
+    </div>
 
-      let angle = Math.random() * 2 - 1;
-      let speedY = 1 + Math.random() * 2;
-      let x = parseFloat(petal.style.left);
-      let y = -20;
+    <div class="content">
 
-      const fall = setInterval(() => {
-        angle += 0.01;
-        x += Math.sin(angle);
-        y += speedY;
-        petal.style.left = x + 'px';
-        petal.style.top = y + 'px';
+      <!-- ABOUT -->
+      <div class="section active" id="about">
+        <div class="section-title">About Me</div>
+        <div class="underline"></div>
 
-        if (y > window.innerHeight) {
-          clearInterval(fall);
-          petal.remove();
-        }
-      }, 20);
-    }
+        <div class="bio">
+          I am a backend developer, constantly building efficient systems and contributing open source code to the community.
+        </div>
 
-    setInterval(createPetal, 300);
-  </script>
+        <div class="cards">
+          <div class="card">
+            <i class="ti ti-map-pin"></i>
+            <span>Viet Nam</span>
+          </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+          <div class="card">
+            <i class="ti ti-code"></i>
+            <span>Backend Development</span>
+          </div>
+
+          <div class="card">
+            <i class="ti ti-school"></i>
+            <span>Information Technology</span>
+          </div>
+        </div>
+
+        <div class="exp-section-title">Work Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-company">Viettel Software (VTIT)</div>
+          <ul>
+            <li>Project development by the corporation and the State Securities Commission.</li>
+            <li>Developing projects for Viettel Group.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-company">VTI (VTI Group)</div>
+          <ul>
+            <li>Develop the Mobi system for 3 markets: Japan, Malaysia, and Vietnam.</li>
+            <li>Developing a facial recognition payment system for buses in Japan.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-company">TLH VietNam</div>
+          <ul>
+            <li>Onsite Viettel Telecom: Developing a Java backend microservice system (SME-HUB).</li>
+            <li>Java (SpringBoot), MVC pattern, BPMN flow, SOAP API, EhCache, Jenkin (CI/CD), K8S, Docker.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="section" id="contact">
+        <div class="section-title">Contact</div>
+        <div class="underline"></div>
+
+        <div class="contact-grid">
+          <div class="contact-img">
+            <i class="ti ti-device-mobile"></i>
+          </div>
+
+          <div class="form-group">
+            <input type="text" placeholder="Full Name *" />
+            <input type="email" placeholder="Email" />
+            <textarea placeholder="Description *"></textarea>
+
+            <button class="submit-btn">
+              SUBMIT
+            </button>
+          </div>
+        </div>
+
+        <div class="teal-bar"></div>
+      </div>
+
+      <!-- RESUME -->
+      <div class="section" id="resume">
+        <div class="section-title">Resume</div>
+        <div class="underline"></div>
+
+        <div class="resume-section">
+          <h3>Skills</h3>
+
+          <div class="skills-grid">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">SpringBoot</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h3>Download CV</h3>
+
+          <button class="submit-btn">
+            <i class="ti ti-download"></i>
+            Download PDF
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
 </body>
 </html>
+```
